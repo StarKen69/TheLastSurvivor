@@ -553,6 +553,8 @@ GameObject:
   - component: {fileID: 54044654433097238}
   - component: {fileID: 136731498130727170}
   - component: {fileID: 114538391145469882}
+  - component: {fileID: 95726440669758884}
+  - component: {fileID: 114113833141651746}
   m_Layer: 9
   m_Name: Player_Online
   m_TagString: Untagged
@@ -1156,6 +1158,24 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1362354130481208}
   m_Enabled: 1
+--- !u!95 &95726440669758884
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924417884877642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0fe11741dc75ace4f9933d0b96e7ec53, type: 3}
+  m_Controller: {fileID: 9100000, guid: 78f49b3998aa5834d9636da85e7a84ec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95777077574725882
 Animator:
   serializedVersion: 3
@@ -1174,6 +1194,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114113833141651746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924417884877642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d723bb00f9aceb64fa5890653516c304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114489872758289354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1200,7 +1231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25cd6d5aadd7f249a993e8b78293cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 95726440669758884}
   CPcamera: {fileID: 20424414502359786}
   Caminar: 5
   Correr: 8
