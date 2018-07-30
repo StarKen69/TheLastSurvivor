@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Camera_Prueba : MonoBehaviour {
 
+    public Animator anim;
+
     #region // variables publicas
 
     public Camera CPcamera;
-    public float VelocidadVertical_Y;
+    public float Caminar;
+    public float Correr;
+    public float Salto;
 
     float V;
 
@@ -28,6 +32,8 @@ public class Camera_Prueba : MonoBehaviour {
     #region // region start
 
     void Start () {
+       
+        anim.GetComponent<Animator>();
 
         {
             // Make the rigid body not change rotation
@@ -38,19 +44,20 @@ public class Camera_Prueba : MonoBehaviour {
 
     }
 
+    private void Caminarr()
+    {
+        anim.SetTrigger("Caminar");
+    }
+
     #endregion
 
-    #region // region de controles (W,S,A,D)
+    #region // region de controles (W,S,A,D) (update)
 
     void Update () {
 
-        V = VelocidadVertical_Y * Input.GetAxis("Mouse Y");
-
-        CPcamera.transform.Rotate(-V, 0, 0);
-
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0, 0, 0.1f);
+            transform.Translate(0, 0, Time.deltaTime * Caminar);
         }
         else
         {
@@ -64,6 +71,7 @@ public class Camera_Prueba : MonoBehaviour {
                 {
                     transform.Translate(-0.1f, 0, 0);
                 }
+
                 else
                 {
                     if (Input.GetKey(KeyCode.D))
@@ -71,13 +79,38 @@ public class Camera_Prueba : MonoBehaviour {
                         transform.Translate(0.1f, 0, 0);
                     }
                 }
+
             }
         }
 
-        #endregion
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            transform.Translate(0, 0, Time.deltaTime * Correr);
+        }
 
-    #region // region rotamiento de camara (Eje Y,Z)
-        if (axes == RotationAxes.MouseXAnddY)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.Translate(0, Time.deltaTime * Salto, 0);
+        }
+
+
+        #region //Salto (arreglar)
+        //else
+        //{
+
+            
+            //if (Input.GetKeyUp(KeyCode.Space))
+            //{
+            //transform.Translate(0, Time.deltaTime * Salto, 0);
+            //}
+            //}
+            #endregion
+
+
+            #endregion
+
+            #region // region rotamiento de camara (Eje Y,Z)
+            if (axes == RotationAxes.MouseXAnddY)
         {
 
         }
