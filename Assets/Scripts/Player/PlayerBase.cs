@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(PlayerInventory))]
 public class PlayerBase : MonoBehaviour {
+    public Camera playerCamera;
+
     public const int PLAYER_MAX_HEALTH = 100;
     public const int PLAYER_MAX_FOOD = 10;
 
@@ -40,6 +43,11 @@ public class PlayerBase : MonoBehaviour {
     public int GetFood()
     {
         return food;
+    }
+
+    public PlayerInventory GetInventory()
+    {
+        return GetComponent<PlayerInventory>();
     }
 
     private void Die()

@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 114538391145469882}
   - component: {fileID: 95726440669758884}
   - component: {fileID: 114113833141651746}
+  - component: {fileID: 114113781150238942}
   m_Layer: 9
   m_Name: Player_Online
   m_TagString: Untagged
@@ -1194,6 +1195,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114113781150238942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924417884877642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108af1a1ff73db64280e69cff26c623e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryType: 0
+  recipes:
+  - {fileID: 11400000, guid: f64ce6cfbcd9b224799e4434afc2da61, type: 2}
+  item1: {fileID: 11400000, guid: ecd2813648a95de4a82ce78cb6ce1773, type: 2}
+  item2: {fileID: 11400000, guid: 10bbf6440b1fd8b4994845cc7c2fbaee, type: 2}
 --- !u!114 &114113833141651746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1205,6 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d723bb00f9aceb64fa5890653516c304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 20424414502359786}
 --- !u!114 &114489872758289354
 MonoBehaviour:
   m_ObjectHideFlags: 1
