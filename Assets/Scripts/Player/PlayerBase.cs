@@ -10,6 +10,8 @@ public class PlayerBase : MonoBehaviour {
     public delegate void PlayerPropertiesChanged(PlayerBase player);
     public event PlayerPropertiesChanged OnPlayerPropertiesChanged;
 
+    public Collision groundCollision;
+
     private int health = 100;
     private int food = 10;
 
@@ -54,5 +56,27 @@ public class PlayerBase : MonoBehaviour {
     {
         // When the player dies...
         Destroy(gameObject);
+    }
+
+    public bool IsGrounded()
+    {
+        return groundCollision != null;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        foreach(ContactPoint cp in collision.contacts)
+        {
+            if (cp.point.y <= (transform.localPosition.y - (transform.localScale.y - 50)))
+            {
+                groundCollision = collision;
+                break;
+            }
+        }
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject == groundCollision.gameObject) groundCollision = null;
     }
 }

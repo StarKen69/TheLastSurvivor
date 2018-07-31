@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 95726440669758884}
   - component: {fileID: 114113833141651746}
   - component: {fileID: 114113781150238942}
+  - component: {fileID: 114377204683816258}
   m_Layer: 9
   m_Name: Player_Online
   m_TagString: Untagged
@@ -1223,6 +1224,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 20424414502359786}
+--- !u!114 &114377204683816258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924417884877642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57189a009e0d9f24988ff4b206aae698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
+  jumpForce: 1
+  playerBase: {fileID: 114113833141651746}
+  rigidbody: {fileID: 54044654433097238}
 --- !u!114 &114489872758289354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1244,7 +1260,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1924417884877642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a25cd6d5aadd7f249a993e8b78293cf0, type: 3}
   m_Name: 
