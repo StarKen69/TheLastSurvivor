@@ -3,14 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+
+    #region Variables publicas
     public float walkSpeed = 5, runSpeed = 8;
     public float rotateSpeed = 5;
-    public float jumpForce = 1;
+    public float Salto;
+    public float Tiempo;
+    public static bool tocado = true;
 
     public PlayerBase playerBase;
     public new Rigidbody rigidbody;
 
+    #endregion
+
+    #region Variables privadas
     private float lastMoveX, lastMoveZ;
+
+
+    #endregion
+
+    void Start()
+    {
+ 
+    }
+
+    void Update()
+    {
+        #region Salto
+            if (tocado == true && Input.GetKeyDown(KeyCode.Space) && playerBase.IsGrounded())
+        {
+            tocado = false;
+            Invoke("Salta", 0f);
+        }
+        #endregion
+    }
 
     public void FixedUpdate()
     {
@@ -43,9 +69,20 @@ public class PlayerMovement : MonoBehaviour {
         lastMoveX = moveX;
         lastMoveZ = moveZ;
 
-        if (Input.GetKey(KeyCode.Space) && playerBase.IsGrounded())
-        {
-            rigidbody.AddRelativeForce(transform.up * Time.deltaTime * jumpForce * 120, ForceMode.VelocityChange);
-        }
+
     }
+
+    #region Salto
+    public void Salta()
+    {
+        rigidbody.AddRelativeForce(transform.up * Time.deltaTime * Salto * 120, ForceMode.VelocityChange);
+        Invoke("desbloc", Tiempo);
+    }
+    public void desbloc()
+    {
+        tocado = true;
+
+    }
+    #endregion
+
 }
