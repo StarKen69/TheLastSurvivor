@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2232699d611569489c7eb7595b6ef08
+guid: d6ff036c18e5db343a37a8838213010c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -77,7 +77,7 @@ ModelImporter:
     2100002: high-poly
     4300000: playerMesh
     4300002: high-polyMesh
-    7400000: Idle
+    7400000: Walk
     9500000: //RootNode
     13700000: high-polyMesh
     13700002: playerMesh
@@ -110,17 +110,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Walk
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 300
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

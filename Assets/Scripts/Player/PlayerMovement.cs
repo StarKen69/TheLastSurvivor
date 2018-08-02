@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     public float Salto;
     public float Tiempo;
     public static bool tocado = true;
+    public Animator anim;
+
 
     public PlayerBase playerBase;
     public new Rigidbody rigidbody;
@@ -24,18 +26,23 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start()
     {
- 
+        anim = GetComponent<Animator>();
     }
+
 
     void Update()
     {
         #region Salto
-            if (tocado == true && Input.GetKeyDown(KeyCode.Space) && playerBase.IsGrounded())
+        if (tocado == true && Input.GetKeyDown(KeyCode.Space) && playerBase.IsGrounded())
         {
             tocado = false;
             Invoke("Salta", 0f);
         }
         #endregion
+
+
+
+
     }
 
     public void FixedUpdate()
@@ -54,6 +61,7 @@ public class PlayerMovement : MonoBehaviour {
             }
             else
             {
+                
                 moveX *= walkSpeed;
                 moveZ *= walkSpeed;
             }
@@ -84,5 +92,8 @@ public class PlayerMovement : MonoBehaviour {
 
     }
     #endregion
+
+    
+
 
 }
