@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 95777077574725882}
   - component: {fileID: 111362980149705706}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: PlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -553,14 +553,13 @@ GameObject:
   - component: {fileID: 4065063625721470}
   - component: {fileID: 54044654433097238}
   - component: {fileID: 136731498130727170}
-  - component: {fileID: 114538391145469882}
   - component: {fileID: 95726440669758884}
   - component: {fileID: 114113833141651746}
   - component: {fileID: 114113781150238942}
   - component: {fileID: 114377204683816258}
   m_Layer: 9
-  m_Name: Player_Online
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1170,10 +1169,10 @@ Animator:
   m_GameObject: {fileID: 1924417884877642}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0fe11741dc75ace4f9933d0b96e7ec53, type: 3}
-  m_Controller: {fileID: 9100000, guid: 78f49b3998aa5834d9636da85e7a84ec, type: 2}
+  m_Controller: {fileID: 9100000, guid: ec500a73885753a4cb7bc912a0034c9b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1188,7 +1187,7 @@ Animator:
   m_GameObject: {fileID: 1583427249183876}
   m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 0fe11741dc75ace4f9933d0b96e7ec53, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78f49b3998aa5834d9636da85e7a84ec, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1250,12 +1249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57189a009e0d9f24988ff4b206aae698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  runSpeed: 8
+  walkSpeed: 4
+  runSpeed: 6
   rotateSpeed: 5
-  Salto: 0
-  Tiempo: 0
-  anim: {fileID: 0}
+  Salto: 3
+  Tiempo: 1.5
+  anim: {fileID: 95726440669758884}
   playerBase: {fileID: 114113833141651746}
   rigidbody: {fileID: 54044654433097238}
 --- !u!114 &114489872758289354
@@ -1264,7 +1263,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1362354130481208}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51c7075e4137a1c4bb742cf2f5098eb0, type: 3}
   m_Name: 
@@ -1273,26 +1272,6 @@ MonoBehaviour:
   sensitivityY: 5
   minimumY: -90
   maximumY: 90
---- !u!114 &114538391145469882
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924417884877642}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a25cd6d5aadd7f249a993e8b78293cf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 95726440669758884}
-  CPcamera: {fileID: 20424414502359786}
-  Caminar: 5
-  Correr: 8
-  Salto: 100
-  axes: 1
-  sensitivityX: 5
-  minimumX: -360
-  maximumX: 360
 --- !u!136 &136731498130727170
 CapsuleCollider:
   m_ObjectHideFlags: 1

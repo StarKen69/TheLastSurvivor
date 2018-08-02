@@ -3,46 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-
     #region Variables publicas
     public float walkSpeed = 5, runSpeed = 8;
     public float rotateSpeed = 5;
-    public float Salto;
-    public float Tiempo;
-    public static bool tocado = true;
-    public Animator anim;
-
-
-    public PlayerBase playerBase;
-    public new Rigidbody rigidbody;
-
+    public float jumpForce = 5;
+    public Animator animator;
     #endregion
 
     #region Variables privadas
     private float lastMoveX, lastMoveZ;
-
-
+    private PlayerBase playerBase;
+    private new Rigidbody rigidbody;
+    private bool recentlyJumped;
     #endregion
 
-    void Start()
+    public void Start()
     {
-        anim = GetComponent<Animator>();
-    }
-
-
-    void Update()
-    {
-        #region Salto
-        if (tocado == true && Input.GetKeyDown(KeyCode.Space) && playerBase.IsGrounded())
-        {
-            tocado = false;
-            Invoke("Salta", 0f);
-        }
-        #endregion
-
-
-
-
+        playerBase = GetComponent<PlayerBase>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     public void FixedUpdate()
@@ -52,20 +30,35 @@ public class PlayerMovement : MonoBehaviour {
 
         float rotY = Input.GetAxis("Mouse X") * rotateSpeed;
 
-        if(playerBase.IsGrounded())
+        if (moveX == 0 && moveZ == 0)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                moveX *= runSpeed;
-                moveZ *= runSpeed;
-            }
-            else
-            {
-                
-                moveX *= walkSpeed;
-                moveZ *= walkSpeed;
-            }
+            ExecuteAnimation("Idle");
         } else
+        {
+            if (playerBase.IsGrounded())
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    moveX *= runSpeed;
+                    moveZ *= runSpeed;
+
+                    ExecuteAnimation("Run");
+                    animator.SetFloat("MoveSpeed", 2);
+                }
+                else
+                {
+                    moveX *= walkSpeed;
+                    moveZ *= walkSpeed;
+
+                    ExecuteAnimation("Walk");
+                    animator.SetFloat("MoveSpeed", 1);
+                }
+
+                if (Input.GetKey(KeyCode.Space) && !recentlyJumped) Jump();
+            }
+        }
+
+        if(!playerBase.IsGrounded())
         {
             moveX = lastMoveX;
             moveZ = lastMoveZ;
@@ -76,24 +69,25 @@ public class PlayerMovement : MonoBehaviour {
 
         lastMoveX = moveX;
         lastMoveZ = moveZ;
-
-
     }
 
-    #region Salto
-    public void Salta()
+    public void Jump()
     {
-        rigidbody.AddRelativeForce(transform.up * Time.deltaTime * Salto * 120, ForceMode.VelocityChange);
-        Invoke("desbloc", Tiempo);
+        recentlyJumped = true;
+        rigidbody.AddRelativeForce(transform.up * jumpForce, ForceMode.VelocityChange);
+        Invoke("ResetRecentlyJumped", 0.5f);
     }
-    public void desbloc()
+
+    private void ResetRecentlyJumped() { recentlyJumped = false; }
+
+    private void ExecuteAnimation(string animName)
     {
-        tocado = true;
-
+        if(animName != "Idle")
+        {
+            animator.SetBool("IsMoving", true);
+        } else
+        {
+            animator.SetBool("IsMoving", false);
+        }
     }
-    #endregion
-
-    
-
-
 }

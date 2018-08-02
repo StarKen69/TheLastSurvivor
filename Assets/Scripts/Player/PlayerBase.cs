@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(PlayerInventory))]
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerBase : MonoBehaviour {
     public Camera playerCamera;
 
@@ -10,7 +11,7 @@ public class PlayerBase : MonoBehaviour {
     public delegate void PlayerPropertiesChanged(PlayerBase player);
     public event PlayerPropertiesChanged OnPlayerPropertiesChanged;
 
-    public Collision groundCollision;
+    private Collision groundCollision;
 
     private int health = 100;
     private int food = 10;
