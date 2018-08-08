@@ -6,6 +6,7 @@ public class GameItem : ScriptableObject {
     public string description;
     public Sprite icon;
     public GameItemType type;
+    public GameObject prefab;
 
     public enum GameItemType
     {

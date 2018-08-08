@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: TestItem3
   m_EditorClassIdentifier: 
   name: Test item 3
-  description: A third one... wtf
+  description: A third one huehuehue
   icon: {fileID: 21300000, guid: 5485e2f56028a3c4cb54f5caa167377e, type: 3}
   type: 2

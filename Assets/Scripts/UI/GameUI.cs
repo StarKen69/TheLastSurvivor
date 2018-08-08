@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour {
     public PlayerBase playerBase;
+    public PlayerMovement playerMovement;
     public GameObject inventoryUI;
     public Transform inventorySlotsContainer;
     public GameObject itemsRowPrefab, itemSlotPrefab;
@@ -25,8 +26,7 @@ public class GameUI : MonoBehaviour {
             inventoryUI.SetActive(inventoryOpened);
 
             // Remove or reactive player moving control
-            playerBase.GetComponent<Camera_Prueba>().enabled = !inventoryOpened;
-            playerBase.playerCamera.GetComponent<MouseLook>().enabled = !inventoryOpened;
+            playerMovement.canMove = !inventoryOpened;
         }
     }
 

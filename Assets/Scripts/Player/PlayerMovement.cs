@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     #region Variables publicas
+    public bool canMove = true;
     public float walkSpeed = 5, runSpeed = 8;
     public float rotateSpeed = 5;
     public float jumpForce = 5;
@@ -25,50 +26,54 @@ public class PlayerMovement : MonoBehaviour {
 
     public void FixedUpdate()
     {
-        float moveX = Input.GetAxis("Horizontal") * Time.deltaTime;
-        float moveZ = Input.GetAxis("Vertical") * Time.deltaTime;
-
-        float rotY = Input.GetAxis("Mouse X") * rotateSpeed;
-
-        if (moveX == 0 && moveZ == 0)
+        if(canMove)
         {
-            ExecuteAnimation("Idle");
-        } else
-        {
-            if (playerBase.IsGrounded())
+            float moveX = Input.GetAxis("Horizontal") * Time.deltaTime;
+            float moveZ = Input.GetAxis("Vertical") * Time.deltaTime;
+
+            float rotY = Input.GetAxis("Mouse X") * rotateSpeed;
+            float rotX = -Input.GetAxis("Mouse Y") * rotateSpeed;
+
+            if (moveX == 0 && moveZ == 0)
             {
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    moveX *= runSpeed;
-                    moveZ *= runSpeed;
-
-                    ExecuteAnimation("Run");
-                    animator.SetFloat("MoveSpeed", 2);
-                }
-                else
-                {
-                    moveX *= walkSpeed;
-                    moveZ *= walkSpeed;
-
-                    ExecuteAnimation("Walk");
-                    animator.SetFloat("MoveSpeed", 1);
-                }
-
-                if (Input.GetKey(KeyCode.Space) && !recentlyJumped) Jump();
+                ExecuteAnimation("Idle");
             }
+            else
+            {
+                if (playerBase.IsGrounded())
+                {
+                    if (Input.GetKey(KeyCode.LeftShift))
+                    {
+                        moveX *= runSpeed;
+                        moveZ *= runSpeed;
+
+                        ExecuteAnimation("Run");
+                        animator.SetFloat("MoveSpeed", 2);
+                    }
+                    else
+                    {
+                        moveX *= walkSpeed;
+                        moveZ *= walkSpeed;
+
+                        ExecuteAnimation("Walk");
+                        animator.SetFloat("MoveSpeed", 1);
+                    }
+
+                    if (Input.GetKey(KeyCode.Space) && !recentlyJumped) Jump();
+                }
+            }
+
+            if (!playerBase.IsGrounded())
+            {
+                moveX = lastMoveX;
+                moveZ = lastMoveZ;
+            }
+
+            transform.Translate(moveX, 0, moveZ);
+
+            lastMoveX = moveX;
+            lastMoveZ = moveZ;
         }
-
-        if(!playerBase.IsGrounded())
-        {
-            moveX = lastMoveX;
-            moveZ = lastMoveZ;
-        }
-
-        transform.Translate(moveX, 0, moveZ);
-        transform.Rotate(0, rotY, 0);
-
-        lastMoveX = moveX;
-        lastMoveZ = moveZ;
     }
 
     public void Jump()
