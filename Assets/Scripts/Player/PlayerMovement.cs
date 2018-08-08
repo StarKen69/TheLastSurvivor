@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour {
             }
 
             transform.Translate(moveX, 0, moveZ);
+            transform.Rotate(0, rotY, 0);
 
             lastMoveX = moveX;
             lastMoveZ = moveZ;
