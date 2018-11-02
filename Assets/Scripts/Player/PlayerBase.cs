@@ -11,10 +11,12 @@ public class PlayerBase : MonoBehaviour {
     public delegate void PlayerPropertiesChanged(PlayerBase player);
     public event PlayerPropertiesChanged OnPlayerPropertiesChanged;
 
-    private Collision groundCollision;
+    private bool grounded;
 
     private int health = 100;
     private int food = 10;
+
+    private ContactPoint cpGrounded;
 
     public void SetHealth(int health)
     {
@@ -61,16 +63,16 @@ public class PlayerBase : MonoBehaviour {
 
     public bool IsGrounded()
     {
-        return groundCollision != null;
+        return grounded;
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
         foreach(ContactPoint cp in collision.contacts)
         {
             if (cp.point.y <= (transform.localPosition.y - (transform.localScale.y - 50)))
             {
-                groundCollision = collision;
+                grounded = true;
                 break;
             }
         }
@@ -78,6 +80,6 @@ public class PlayerBase : MonoBehaviour {
 
     public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == groundCollision.gameObject) groundCollision = null;
+        grounded = false;
     }
 }

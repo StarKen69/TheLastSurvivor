@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class CraftInventory : InventoryBase {
     public List<CraftRecipe> recipes = new List<CraftRecipe>();
 
+    /*
     public InventoryItem CraftRecipe(List<InventoryItem> ingredients)
     {
         InventoryItem res = null;
@@ -50,4 +51,5 @@ public class CraftInventory : InventoryBase {
         }
         return res;
     }
+    */
 }

@@ -111,9 +111,9 @@ GameObject:
   - component: {fileID: 4889710432940862}
   - component: {fileID: 54766819082706856}
   - component: {fileID: 136315977151246090}
-  - component: {fileID: 114163834179576460}
-  - component: {fileID: 114749378967962030}
   - component: {fileID: 114649843557611348}
+  - component: {fileID: 114163834179576460}
+  - component: {fileID: 114787196899990858}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -749,13 +749,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1814788387908912}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.75, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4889710432940862}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4335249019545950
 Transform:
   m_ObjectHideFlags: 1
@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 20101868516156942}
---- !u!114 &114749378967962030
+--- !u!114 &114787196899990858
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1212,10 +1212,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1254585984185774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 108af1a1ff73db64280e69cff26c623e, type: 3}
+  m_Script: {fileID: 11500000, guid: 748b53bf2bd48f847a98a5ea2d4edd58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryType: 0
+  name: Player's Backpack
+  maxWeight: 20
 --- !u!136 &136315977151246090
 CapsuleCollider:
   m_ObjectHideFlags: 1

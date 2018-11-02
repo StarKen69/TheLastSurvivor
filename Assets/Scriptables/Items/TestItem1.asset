@@ -13,5 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Test item 1
   description: Item for testing purposes!
+  weight: 1
   icon: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
   type: 0
+  prefab: {fileID: 0}
+  dropPrefab: {fileID: 1401790586944286, guid: 24a0b8c6ef10b5142bab04b5d5c92c15, type: 2}
